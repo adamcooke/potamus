@@ -24,7 +24,7 @@ module Potamus
     end
 
     def image_name
-      @options['image_name'] || raise(Error, "image_name is required in the PotomusFile")
+      @options['image_name'] || raise(Error, "image_name is required in the PotamusFile")
     end
 
     def image_name_with_commit

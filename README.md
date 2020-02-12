@@ -9,7 +9,7 @@ Potamus mandates that you'll create an image with a tag that matches the Git com
 ## Installation
 
 ```
-$ gem install potomus
+$ gem install potamus
 ```
 
 ## Usage
@@ -26,24 +26,24 @@ Once you've added these, just run the build command:
 
 ```bash
 $ cd path/to/app
-$ potomus build
+$ potamus build
 
 # If you wish to also push after building
-$ potomus build --push
+$ potamus build --push
 
 # If you just want to test your Dockerfile.
 # When using test you don't need a clean repository or
 # to have pushed the code. It will only be pushed using the
 # `test` tag.
-$ potomus build --test
+$ potamus build --test
 
 # If you want to test and push your test
-$ potomus build --test --push
+$ potamus build --test --push
 ```
 
 ## Additional configuration
 
-Additional configuration can be specified in the `PotomusFile`.
+Additional configuration can be specified in the `PotamusFile`.
 
 * `remote_name` - the name of the authoritative remote for your repository (defaults to `origin`).
 
