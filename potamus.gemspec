@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.licenses      = ['MIT']
   s.cert_chain    = ['certs/adamcooke.pem']
   s.bindir = 'bin'
-  s.executables << 'hippo'
+  s.executables << 'potamus'
   if $PROGRAM_NAME =~ /gem\z/
     s.signing_key = File.expand_path('~/.gem/signing-key.pem')
   end
