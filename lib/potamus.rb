@@ -1,0 +1,2 @@
+module Potatmus
+end
