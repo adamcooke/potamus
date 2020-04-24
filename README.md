@@ -48,3 +48,7 @@ Additional configuration can be specified in the `PotamusFile`.
 * `remote_name` - the name of the authoritative remote for your repository (defaults to `origin`).
 
 * `branch_for_latest` - when pushing for the named branch a tag named latest will also be created (defaults to `master`).
+
+* `buildkit` - if set to true, the build command will be instructed to use Docker BuildKit
+
+* `build_options` - an array of additional options to provide to the docker build command

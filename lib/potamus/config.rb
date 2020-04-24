@@ -60,6 +60,18 @@ module Potamus
       commit == remote_commit
     end
 
+    def buildkit?
+      @options['buildkit'] == true
+    end
+
+    def build_options
+      if @options['build_options'].is_a?(Array)
+        @options['build_options'].map(&:to_s).join(' ')
+      else
+        @options['build_options']
+      end
+    end
+
     def branch
       stdout, stderr, status = Open3.capture3("cd #{@root} && git symbolic-ref HEAD")
       unless status.success?
@@ -73,10 +85,12 @@ module Potamus
       [
         "cd #{@root}",
         '&&',
+        buildkit? ? 'DOCKER_BUILDKIT=1' : nil,
         'docker', 'build', '.', '-t', image_name_with_commit,
         '--build-arg', 'commit_ref=' + commit,
-        '--build-arg', 'branch=' + branch
-      ].join(' ')
+        '--build-arg', 'branch=' + branch,
+        build_options
+      ].compact.join(' ')
     end
 
     def tags
